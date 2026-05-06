@@ -181,11 +181,10 @@ export const ServicesPage = () => (
                    category.id === 'security-surveillance' ? '/cctv-surveillance.jpg' :
                    category.id === 'fire-alarm' ? '/fire-alarm.jpg' :
                    category.id === 'access-control' ? '/access-control.jpg' :
-                   `https://images.unsplash.com/photo-${
-                     category.id === 'structured-cabling' ? '1544197150-149d682498ec' : 
-                     category.id === 'audio-visual' ? '1517048676732-d65bc937f952' : 
-                     '1558494949-ef010cbdcc48'
-                   }?auto=format&fit=crop&q=80&w=1000`
+                   category.id === 'structured-cabling' ? '/networking.jpg' :
+                   category.id === 'it-infrastructure' ? '/it-infrastructure.jpg' :
+                   category.id === 'audio-visual' ? '/audio-visual.jpg' :
+                   `https://images.unsplash.com/photo-1558494949-ef010cbdcc48?auto=format&fit=crop&q=80&w=1000`
                  }
                  className="w-full h-full object-cover transition-all duration-700"
                  alt={category.title}

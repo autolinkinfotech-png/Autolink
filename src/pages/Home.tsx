@@ -165,6 +165,20 @@ const Hero = () => {
 const ServiceCard: React.FC<{ service: any; index: number }> = ({ service, index }) => {
   const IconComponent = (Icons as any)[service.icon] || Icons.Globe;
 
+  const getServiceImage = (serviceId: string) => {
+    const images: Record<string, string> = {
+      'security-surveillance': '/cctv-surveillance.jpg',
+      'fire-alarm': '/fire-alarm.jpg',
+      'access-control': '/access-control.jpg',
+      'structured-cabling': '/networking.jpg',
+      'it-infrastructure': '/it-infrastructure.jpg',
+      'audio-visual': '/audio-visual.jpg'
+    };
+    return images[serviceId];
+  };
+
+  const imageUrl = getServiceImage(service.id);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -176,28 +190,41 @@ const ServiceCard: React.FC<{ service: any; index: number }> = ({ service, index
         ease: [0.21, 1.11, 0.81, 0.99]
       }}
       whileHover={{ y: -10 }}
-      className="group bg-white p-8 rounded-[2.5rem] border border-slate-100 hover:border-brand-500/30 hover:shadow-[0_20px_50px_rgba(37,99,235,0.15)] transition-all duration-500 flex flex-col h-full"
+      className="group bg-white rounded-[2.5rem] border border-slate-100 hover:border-brand-500/30 hover:shadow-[0_20px_50px_rgba(37,99,235,0.15)] transition-all duration-500 flex flex-col h-full overflow-hidden"
     >
-      <div className="w-16 h-16 bg-brand-50 rounded-2xl flex items-center justify-center text-brand-600 mb-8 group-hover:bg-brand-600 group-hover:text-white transition-all duration-500 shadow-sm relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent pointer-events-none" />
-        <IconComponent className="w-8 h-8 relative z-10" />
-      </div>
+      {imageUrl ? (
+        <div className="w-full h-48 overflow-hidden rounded-t-[2.5rem]">
+          <img 
+            src={imageUrl} 
+            alt={service.title}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            referrerPolicy="no-referrer"
+          />
+        </div>
+      ) : null}
       
-      <h3 className="text-xl font-bold text-slate-900 group-hover:text-brand-600 transition-colors mb-4 uppercase tracking-widest text-sm leading-tight">
-        {service.title}
-      </h3>
-      
-      <p className="text-sm text-slate-500 leading-relaxed font-medium opacity-80 group-hover:opacity-100 transition-opacity mb-8 flex-grow">
-        {service.description}
-      </p>
-      
-      <div className="space-y-3 pt-6 border-t border-slate-50">
-        {service.items.slice(0, 3).map((item, idx) => (
-          <div key={idx} className="flex items-center gap-3 text-[11px] font-bold text-slate-400 uppercase tracking-tight">
-            <div className="w-1.5 h-1.5 rounded-full bg-brand-500" />
-            {item}
-          </div>
-        ))}
+      <div className="p-8 flex flex-col h-full">
+        <div className="w-16 h-16 bg-brand-50 rounded-2xl flex items-center justify-center text-brand-600 mb-8 group-hover:bg-brand-600 group-hover:text-white transition-all duration-500 shadow-sm relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent pointer-events-none" />
+          <IconComponent className="w-8 h-8 relative z-10" />
+        </div>
+        
+        <h3 className="text-xl font-bold text-slate-900 group-hover:text-brand-600 transition-colors mb-4 uppercase tracking-widest text-sm leading-tight">
+          {service.title}
+        </h3>
+        
+        <p className="text-sm text-slate-500 leading-relaxed font-medium opacity-80 group-hover:opacity-100 transition-opacity mb-8 flex-grow">
+          {service.description}
+        </p>
+        
+        <div className="space-y-3 pt-6 border-t border-slate-50">
+          {service.items.slice(0, 3).map((item, idx) => (
+            <div key={idx} className="flex items-center gap-3 text-[11px] font-bold text-slate-400 uppercase tracking-tight">
+              <div className="w-1.5 h-1.5 rounded-full bg-brand-500" />
+              {item}
+            </div>
+          ))}
+        </div>
       </div>
     </motion.div>
   );
