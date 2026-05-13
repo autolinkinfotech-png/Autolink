@@ -138,6 +138,38 @@ export const AboutPage = () => (
              </div>
            </div>
         </div>
+
+        <div className="space-y-14">
+          <div className="bg-slate-50 rounded-[4rem] p-10 md:p-16">
+            <div className="max-w-5xl mx-auto space-y-10">
+              <div className="text-center">
+                <h2 className="text-4xl md:text-5xl font-bold text-slate-900">Our Brands</h2>
+                <p className="mt-4 text-slate-600 text-base md:text-lg max-w-3xl mx-auto">
+                  Autolink works with leading technology brands to bring reliable networking, security, and infrastructure solutions to enterprise customers.
+                </p>
+              </div>
+
+              <div className="bg-white rounded-[2.5rem] border border-slate-200 overflow-hidden shadow-sm">
+                <img src="/1.png" alt="Brands associated with Autolink" className="w-full h-auto object-cover" referrerPolicy="no-referrer" />
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-slate-50 rounded-[4rem] p-10 md:p-16">
+            <div className="max-w-5xl mx-auto space-y-10">
+              <div className="text-center">
+                <h2 className="text-4xl md:text-5xl font-bold text-slate-900">Our Clients</h2>
+                <p className="mt-4 text-slate-600 text-base md:text-lg max-w-3xl mx-auto">
+                  These are some of the businesses supported by Autolink, representing our commitment to delivering performance, security, and trusted technical service.
+                </p>
+              </div>
+
+              <div className="bg-white rounded-[2.5rem] border border-slate-200 overflow-hidden shadow-sm">
+                <img src="/2.png" alt="Our clients" className="w-full h-auto object-cover" referrerPolicy="no-referrer" />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </Section>
   </PageTransition>
