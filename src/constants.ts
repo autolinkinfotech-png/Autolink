@@ -94,4 +94,4 @@ export const PARTNERS = [
   { name: 'CommScope', type: 'Infrastructure Partner' }
 ];
 
-export const LOGO = '/autolink-logo.svg';
+export const LOGO = '/autolink-logo.png';
