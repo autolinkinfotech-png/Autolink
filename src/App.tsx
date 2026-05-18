@@ -4,10 +4,8 @@ import { useEffect } from 'react';
 import { Header, Footer } from './components/Layout';
 import { HomePage } from './pages/Home';
 import { AboutPage, ServicesPage, PortfolioPage, PartnersPage, ContactPage } from './pages/ContentPages';
+import { GetQuotePage } from './pages/GetQuote';
 
-/**
- * ScrollToTop helper for route changes
- */
 const ScrollToTop = () => {
   const { pathname } = useLocation();
   useEffect(() => {
@@ -28,6 +26,7 @@ const AnimatedRoutes = () => {
         <Route path="/portfolio" element={<PortfolioPage />} />
         <Route path="/partners" element={<PartnersPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/get-quote" element={<GetQuotePage />} />
       </RoutesWithKey>
     </AnimatePresence>
   );
